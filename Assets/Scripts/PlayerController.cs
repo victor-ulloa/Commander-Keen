@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour {
     SpriteRenderer spriteRenderer;
     Animator animator;
 
-    public float speed = 0.5f;
-    public int jumpForce = 300;
-    public bool isGrounded;
-    public LayerMask groundLayer;
-    public Transform groundCheck;
-    public float groundCheckRadius = 0.02f;
+    [SerializeReference] float speed = 0.5f;
+    [SerializeReference] int jumpForce = 300;
+    [SerializeReference] public bool isGrounded;
+    [SerializeReference] LayerMask groundLayer;
+    [SerializeReference] Transform groundCheck;
+    [SerializeReference] float groundCheckRadius = 0.02f;
+    [SerializeReference] bool facingRight = true;
 
     // Start is called before the first frame update
     void Start() {
@@ -46,6 +47,18 @@ public class PlayerController : MonoBehaviour {
         animator.SetFloat("moveValue", Mathf.Abs(hInput));
         animator.SetBool("isGrounded", isGrounded);
 
-        // TODO: add sprite fliping here
+        // Flip
+        if (hInput > 0 && !facingRight) {
+            flip();
+        } else if ( hInput < 0 && facingRight) {
+            flip();
+        }
+    }
+
+    void flip() {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+        facingRight = !facingRight;
     }
 }
