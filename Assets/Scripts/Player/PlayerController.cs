@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(Animator))]
+[RequireComponent(typeof(Shoot))]
 
 public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rigidBody;
-    SpriteRenderer spriteRenderer;
     Animator animator;
 
     [SerializeReference] float speed = 0.5f;
@@ -16,12 +16,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeReference] LayerMask groundLayer;
     [SerializeReference] Transform groundCheck;
     [SerializeReference] float groundCheckRadius = 0.02f;
-    [SerializeReference] bool facingRight = true;
+    [SerializeReference] public bool facingRight = true;
 
     // Start is called before the first frame update
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
         if (speed <= 0) { speed = 0.5f; }
@@ -32,17 +31,25 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        AnimatorClipInfo[] currentPlayingClip = animator.GetCurrentAnimatorClipInfo(0);
         float hInput = Input.GetAxisRaw("Horizontal");
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (currentPlayingClip.Length > 0) {
+            if (Input.GetButtonDown("Fire1") && currentPlayingClip[0].clip.name != "attack") {
+                animator.SetTrigger("shoot");
+            } else if (currentPlayingClip[0].clip.name == "attack" || currentPlayingClip[0].clip.name == "jumpAttack") {
+                rigidBody.velocity = Vector2.zero;
+            } else {
+                rigidBody.velocity = new Vector2(hInput * speed, rigidBody.velocity.y);
+            }
+        }
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
             rigidBody.velocity = Vector2.zero;
             rigidBody.AddForce(Vector2.up * jumpForce);
         }
-
-        Vector2 moveDirection = new Vector2(hInput * speed, rigidBody.velocity.y);
-        rigidBody.velocity = moveDirection;
 
         animator.SetFloat("moveValue", Mathf.Abs(hInput));
         animator.SetBool("isGrounded", isGrounded);
