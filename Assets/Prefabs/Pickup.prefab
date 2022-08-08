@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2856130582108095260}
   - component: {fileID: 7623292517676012864}
   m_Layer: 0
-  m_Name: Bottle
+  m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f0690816b92e15a4aafa33001a863772, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9d7fb07bfde1214ebc3c508790525f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.14, y: 0.15}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ff4175c6d2e54bb337812bb01a8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupType: 0
 --- !u!61 &7623292517676012864
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,8 +116,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.56, y: 0.6}
-    newSize: {x: 0.14, y: 0.15}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
