@@ -22,9 +22,13 @@ public class Pickup : MonoBehaviour {
     [SerializeReference] PickupType pickupType;
 
     private void OnTriggerEnter2D(Collider2D other) {
+
+        PlayerController currentPlayer = other.gameObject.GetComponent<PlayerController>();
+
         if (other.tag == "Player") {
             switch (pickupType) {
                 case PickupType.Lollipop:
+                    currentPlayer.StartJumpforceChange();
                     Debug.Log("Lollipop picked up");
                     break;
                 case PickupType.Soda:

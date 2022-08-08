@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeReference] float groundCheckRadius = 0.02f;
     [SerializeReference] public bool facingRight = true;
 
+    Coroutine jumpForceChange;
+
     // Start is called before the first frame update
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -67,5 +69,20 @@ public class PlayerController : MonoBehaviour {
         currentScale.x *= -1;
         transform.localScale = currentScale;
         facingRight = !facingRight;
+    }
+
+    public void StartJumpforceChange() {
+        if (jumpForceChange != null) {
+            StopCoroutine(jumpForceChange);
+            jumpForceChange = null;
+            jumpForce /= 2;
+        }
+        jumpForceChange = StartCoroutine(JumpForceChange());
+    }
+
+    IEnumerator JumpForceChange() {
+        jumpForce *= 2;
+        yield return new WaitForSeconds(5.0f);
+        jumpForce /= 2;
     }
 }
