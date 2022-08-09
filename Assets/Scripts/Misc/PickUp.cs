@@ -32,9 +32,11 @@ public class Pickup : MonoBehaviour {
                     Debug.Log("Lollipop picked up");
                     break;
                 case PickupType.Soda:
+                    currentPlayer.StartSpeedChange();
                     Debug.Log("Soda picked up");
                     break;
                 case PickupType.Pizza:
+                    currentPlayer.lives++;
                     Debug.Log("Pizza picked up");
                     break;
                 case PickupType.Book:

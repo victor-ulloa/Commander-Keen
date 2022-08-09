@@ -19,6 +19,31 @@ public class PlayerController : MonoBehaviour {
     [SerializeReference] public bool facingRight = true;
 
     Coroutine jumpForceChange;
+    Coroutine speedChange;
+
+    const int MAX_LIVES = 5;
+
+    private int _lives = 3;
+
+    public int lives {
+        get { return _lives; }
+        set {
+
+            // if (_lives > value)
+            // lost a live - respawn?
+
+            // if (_lives <= 0)
+            // Game over
+
+            _lives = value;
+            if (_lives > MAX_LIVES) {
+                _lives = MAX_LIVES;
+            }
+
+
+            Debug.Log("Lives are set to:" + lives.ToString());
+        }
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -85,4 +110,20 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(5.0f);
         jumpForce /= 2;
     }
+
+    public void StartSpeedChange() {
+        if (speedChange != null) {
+            StopCoroutine(speedChange);
+            speedChange = null;
+            speed /= 2;
+        }
+        speedChange = StartCoroutine(SpeedChange());
+    }
+
+    IEnumerator SpeedChange() {
+        speed *= 2;
+        yield return new WaitForSeconds(5.0f);
+        speed /= 2;
+    }
+
 }
