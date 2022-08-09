@@ -117,11 +117,11 @@ public class PlayerController : MonoBehaviour {
     IEnumerator JumpForceChange() {
         jumpForce *= 2;
         yield return new WaitForSeconds(5.0f);
+        jumpForceChange = null;
         jumpForce /= 2;
     }
 
     public void StartSpeedChange() {
-        Debug.Log("TEST");
         if (speedChange != null) {
             StopCoroutine(speedChange);
             speedChange = null;
@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour {
     IEnumerator SpeedChange() {
         speed *= 2;
         yield return new WaitForSeconds(5.0f);
+        speedChange = null;
         speed /= 2;
     }
 
