@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void StartSpeedChange() {
+        Debug.Log("TEST");
         if (speedChange != null) {
             StopCoroutine(speedChange);
             speedChange = null;
