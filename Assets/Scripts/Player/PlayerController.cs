@@ -40,8 +40,17 @@ public class PlayerController : MonoBehaviour {
                 _lives = MAX_LIVES;
             }
 
-
             Debug.Log("Lives are set to:" + lives.ToString());
+        }
+    }
+
+    private int _score = 0;
+    public int score {
+        get { return _lives; }
+        set {
+            _score = value;
+
+            Debug.Log("Your score is:" + score.ToString());
         }
     }
 

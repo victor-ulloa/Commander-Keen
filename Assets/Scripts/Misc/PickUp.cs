@@ -49,6 +49,7 @@ public class Pickup : MonoBehaviour {
                     Debug.Log("CarBattery picked up");
                     break;
                 case PickupType.Everclear:
+                    currentPlayer.score += 50;
                     Debug.Log("Everclear picked up");
                     break;
                 case PickupType.Joystick:
