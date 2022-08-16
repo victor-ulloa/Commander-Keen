@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(Animator))]
 
-public class EnemyController : MonoBehaviour {
+public class Enemy : MonoBehaviour {
     Rigidbody2D rigidBody;
     Animator animator;
 
