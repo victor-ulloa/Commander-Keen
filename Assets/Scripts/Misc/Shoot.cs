@@ -7,6 +7,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour {
 
     PlayerController playerController;
+    Enemy enemy;
 
     [SerializeReference] float projectileSpeed;
     [SerializeReference] Transform spawnPoint;
@@ -14,6 +15,7 @@ public class Shoot : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         playerController = GetComponent<PlayerController>();
+        enemy = GetComponent<Enemy>();
 
         if (projectileSpeed <= 0) {
             projectileSpeed = 7.0f;
@@ -26,6 +28,10 @@ public class Shoot : MonoBehaviour {
 
     public void Fire() {
         Projectile currentProjectile = Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
-        currentProjectile.speed = playerController.facingRight ? projectileSpeed : -projectileSpeed;
+        if (playerController != null) {
+            currentProjectile.speed = playerController.facingRight ? projectileSpeed : -projectileSpeed;
+        } else if (enemy != null) {
+            currentProjectile.speed = enemy.facingRight ? projectileSpeed : -projectileSpeed;
+        }    
     }
 }

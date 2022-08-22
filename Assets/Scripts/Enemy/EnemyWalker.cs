@@ -7,11 +7,8 @@ public class EnemyWalker : Enemy {
 
 
     // Start is called before the first frame update
-    void Start() {
-        rigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
+    public override void Start() {
+        base.Start();
         if (speed <= 0) { speed = 0.5f; }
     }
 

@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void Start() {
+    public virtual void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
