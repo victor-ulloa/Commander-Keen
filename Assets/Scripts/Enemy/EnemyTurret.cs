@@ -35,13 +35,17 @@ public class EnemyTurret : Enemy {
             flip();
         }
 
-        
-
         if (currentClips[0].clip.name != "TurretFire" && Mathf.Abs(playerRelativeLocation.x) < turretRange) {
             if (Time.time >= timeSinceLastFire + projectileFireRate) {
                 animator.SetTrigger("fire");
                 timeSinceLastFire = Time.time;
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Bullet")) {
+            animator.SetTrigger("shot");
         }
     }
 
