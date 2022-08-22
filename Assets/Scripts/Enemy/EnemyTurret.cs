@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyTurret : Enemy {
+
+    [SerializeField] Transform playerTransform;
+    [SerializeField] float turretRange = 10;
+
     public float projectileFireRate;
 
     float timeSinceLastFire;
+
+    Vector3 playerRelativeLocation;
 
 
     // Start is called before the first frame update
@@ -14,13 +20,24 @@ public class EnemyTurret : Enemy {
 
         if (projectileFireRate <= 0)
             projectileFireRate = 2.0f;
+        if (turretRange <= 0)
+            turretRange = 10.0f;
     }
 
     // Update is called once per frame
     void Update() {
         AnimatorClipInfo[] currentClips = animator.GetCurrentAnimatorClipInfo(0);
+        playerRelativeLocation = playerTransform.position - transform.position;
 
-        if (currentClips[0].clip.name != "TurretFire") {
+        if (playerRelativeLocation.x > 0 && !facingRight) {
+            flip();
+        } else if (playerRelativeLocation.x < 0 && facingRight) {
+            flip();
+        }
+
+        
+
+        if (currentClips[0].clip.name != "TurretFire" && Mathf.Abs(playerRelativeLocation.x) < turretRange) {
             if (Time.time >= timeSinceLastFire + projectileFireRate) {
                 animator.SetTrigger("fire");
                 timeSinceLastFire = Time.time;

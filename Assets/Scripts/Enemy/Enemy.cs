@@ -51,4 +51,11 @@ public class Enemy : MonoBehaviour {
     public virtual void DestroyMyself() {
         Destroy(gameObject);
     }
+
+    public virtual void flip() {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+        facingRight = !facingRight;
+    }
 }

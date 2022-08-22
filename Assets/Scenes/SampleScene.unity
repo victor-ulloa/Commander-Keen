@@ -820,7 +820,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!212 &907097099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -902,6 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   maxHealth: 0
+  playerTransform: {fileID: 1806388494}
   projectileFireRate: 0
 --- !u!114 &907097102
 MonoBehaviour:

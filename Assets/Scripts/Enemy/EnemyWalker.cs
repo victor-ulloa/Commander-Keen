@@ -44,10 +44,5 @@ public class EnemyWalker : Enemy {
         }
     }
 
-    void flip() {
-        Vector3 currentScale = transform.localScale;
-        currentScale.x *= -1;
-        transform.localScale = currentScale;
-        facingRight = !facingRight;
-    }
+    
 }
