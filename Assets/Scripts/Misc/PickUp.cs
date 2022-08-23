@@ -36,7 +36,7 @@ public class Pickup : MonoBehaviour {
                     Debug.Log("Soda picked up");
                     break;
                 case PickupType.Pizza:
-                    currentPlayer.lives++;
+                    GameManager.instance.lives ++;
                     Debug.Log("Pizza picked up");
                     break;
                 case PickupType.Book:

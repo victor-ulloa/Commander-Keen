@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   maxHealth: 0
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 3357835822767420672, guid: 7f645634fd3640d4d9c58aaf05a4fe3c, type: 3}
   turretRange: 10
   projectileFireRate: 0
 --- !u!114 &2998572057182965769

@@ -21,32 +21,32 @@ public class PlayerController : MonoBehaviour {
     Coroutine jumpForceChange;
     Coroutine speedChange;
 
-    const int MAX_LIVES = 5;
+    //const int MAX_LIVES = 5;
 
-    private int _lives = 3;
+    //private int _lives = 3;
 
-    public int lives {
-        get { return _lives; }
-        set {
+    //public int lives {
+    //    get { return _lives; }
+    //    set {
 
-            // if (_lives > value)
-            // lost a live - respawn?
+    //        // if (_lives > value)
+    //        // lost a live - respawn?
 
-            // if (_lives <= 0)
-            // Game over
+    //        // if (_lives <= 0)
+    //        // Game over
 
-            _lives = value;
-            if (_lives > MAX_LIVES) {
-                _lives = MAX_LIVES;
-            }
+    //        _lives = value;
+    //        if (_lives > MAX_LIVES) {
+    //            _lives = MAX_LIVES;
+    //        }
 
-            Debug.Log("Lives are set to:" + lives.ToString());
-        }
-    }
+    //        Debug.Log("Lives are set to:" + lives.ToString());
+    //    }
+    //}
 
     private int _score = 0;
     public int score {
-        get { return _lives; }
+        get { return score; }
         set {
             _score = value;
 
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Bullet")) {
-            lives--;
+            GameManager.instance.lives--;
         }
     }
 

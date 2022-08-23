@@ -8,20 +8,20 @@ public class GameManager : MonoBehaviour {
     static GameManager _instance = null;
     public static GameManager instance {
         get { return _instance; }
-        set { _instance = value;  }
+        set { _instance = value; }
     }
 
     // PLAYER
 
-    PlayerController playerPrefab;
+    [SerializeField] PlayerController playerPrefab;
     [HideInInspector] public PlayerController playerInstance; 
     [HideInInspector] public Transform currentSpawnPoint;
-    //[HideInInspector] public Level level;
+    [HideInInspector] public Level currentLevel;
 
 
     // LIVES 
 
-    const int MAX_LIVES = 5;
+    [SerializeField] int maxLives = 5;
 
     private int _lives = 3;
     public int lives {
@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour {
             // Game over
 
             _lives = value;
-            if (_lives > MAX_LIVES) {
-                _lives = MAX_LIVES;
+            if (_lives > maxLives) {
+                _lives = maxLives;
             }
 
             Debug.Log("Lives are set to:" + lives.ToString());

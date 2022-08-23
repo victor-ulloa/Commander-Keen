@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyTurret : Enemy {
 
-    [SerializeField] Transform playerTransform;
     [SerializeField] float turretRange = 10;
 
     public float projectileFireRate;
@@ -27,7 +26,7 @@ public class EnemyTurret : Enemy {
     // Update is called once per frame
     void Update() {
         AnimatorClipInfo[] currentClips = animator.GetCurrentAnimatorClipInfo(0);
-        playerRelativeLocation = playerTransform.position - transform.position;
+        playerRelativeLocation = GameManager.instance.playerInstance.transform.position - transform.position;
 
         if (playerRelativeLocation.x > 0 && !facingRight) {
             flip();
