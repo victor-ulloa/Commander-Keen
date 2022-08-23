@@ -32,8 +32,9 @@ public class GameManager : MonoBehaviour {
                 Respawn();
             }
 
-            // if (_lives <= 0)
-            // Game over
+            if (value <= 0) {
+                GameOver();
+            }
 
             _lives = value;
             if (_lives > maxLives) {
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (SceneManager.GetActiveScene().name == "Level") {
+            if (SceneManager.GetActiveScene().name == "Level" || SceneManager.GetActiveScene().name == "GameOver") {
                 SceneManager.LoadScene("Title");
             } else {
                 SceneManager.LoadScene("Level");
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void GameOver() {
-        // Go to game over screen
+        SceneManager.LoadScene("GameOver");
     }
 
     public void SpawnPlayer(Transform spawnLocation) {
