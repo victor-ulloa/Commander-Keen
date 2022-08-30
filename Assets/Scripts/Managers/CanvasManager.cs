@@ -21,6 +21,9 @@ public class CanvasManager : MonoBehaviour {
     [Header("Slider")]
     [SerializeField] Slider volSlider;
 
+    [Header("Toggle")]
+    [SerializeField] Toggle muteToggle;
+
     [Header("Text")]
     [SerializeField] Text volSliderText;
 
@@ -40,6 +43,7 @@ public class CanvasManager : MonoBehaviour {
         }
         if (volSlider) {
             volSlider.onValueChanged.AddListener((value) => SliderValueChange(value));
+            volSlider.value = AudioListener.volume * 100;
             volSliderText.text = volSlider.value.ToString();
         }
 
@@ -48,6 +52,10 @@ public class CanvasManager : MonoBehaviour {
         }
         if (returnToMenu) {
             returnToMenu.onClick.AddListener(() => LoadMenu());
+        }
+        if (muteToggle) {
+            muteToggle.onValueChanged.AddListener((value) => MuteStatusChange(value));
+            muteToggle.isOn = AudioListener.pause;
         }
     }
 
@@ -92,6 +100,7 @@ public class CanvasManager : MonoBehaviour {
         if (volSliderText) {
             volSliderText.text = value.ToString();
         }
+        AudioListener.volume = value / 100;
     }
 
     void ResumeGame() {
@@ -100,5 +109,9 @@ public class CanvasManager : MonoBehaviour {
         
     void LoadMenu() {
         SceneManager.LoadScene("Title");
+    }
+
+    void MuteStatusChange(bool muted) {
+        AudioListener.pause = muted;
     }
 }
