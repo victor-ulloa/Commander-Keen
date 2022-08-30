@@ -10,8 +10,8 @@ public class CanvasManager : MonoBehaviour {
     [SerializeField] Button settingsButton;
     [SerializeField] Button quitButton;
     [SerializeField] Button backButton;
-    [SerializeField] Button resumeGame;
-    [SerializeField] Button returnToMenu;
+    [SerializeField] Button resumeGameButton;
+    [SerializeField] Button returnToMenuButton;
 
     [Header("Menu")]
     [SerializeField] GameObject mainMenu;
@@ -26,9 +26,14 @@ public class CanvasManager : MonoBehaviour {
 
     [Header("Text")]
     [SerializeField] Text volSliderText;
+    [SerializeField] Text livesText;
+    [SerializeField] Text scoreText;
 
     // Start is called before the first frame update
     void Start() {
+
+        // Buttons
+
         if (startButton) {
             startButton.onClick.AddListener(() => StartGame());
         }
@@ -41,21 +46,35 @@ public class CanvasManager : MonoBehaviour {
         if (backButton) {
             backButton.onClick.AddListener(() => ShowMainMenu());
         }
+        if (resumeGameButton) {
+            resumeGameButton.onClick.AddListener(() => ResumeGame());
+        }
+        if (returnToMenuButton) {
+            returnToMenuButton.onClick.AddListener(() => LoadMenu());
+        }
+
+        // Sliders
+
         if (volSlider) {
             volSlider.onValueChanged.AddListener((value) => SliderValueChange(value));
             volSlider.value = AudioListener.volume * 100;
             volSliderText.text = volSlider.value.ToString();
         }
 
-        if (resumeGame) {
-            resumeGame.onClick.AddListener(() => ResumeGame());
-        }
-        if (returnToMenu) {
-            returnToMenu.onClick.AddListener(() => LoadMenu());
-        }
+        // Toggles
+
         if (muteToggle) {
             muteToggle.onValueChanged.AddListener((value) => MuteStatusChange(value));
             muteToggle.isOn = AudioListener.pause;
+        }
+
+        // Texts
+
+        if (livesText) {
+            livesText.text = GameManager.instance.lives.ToString();
+        }
+        if (scoreText) {
+            //livesText.text = GameManager.instance.lives.ToString();
         }
     }
 
