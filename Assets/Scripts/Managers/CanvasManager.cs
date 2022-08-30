@@ -54,13 +54,12 @@ public class CanvasManager : MonoBehaviour {
     void Update() {
         if(pauseMenu) {
             if (Input.GetKeyDown(KeyCode.P)) {
-                Debug.Log("Paused");
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
-                if(pauseMenu.activeSelf) {
-                    //pause
-                } else {
-                    //unpause
-                }
+            }
+            if (pauseMenu.activeSelf) {
+                Time.timeScale = 0;
+            } else {
+                Time.timeScale = 1;
             }
         }
     }
