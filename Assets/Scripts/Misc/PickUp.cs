@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour {
+public class PickUp : MonoBehaviour {
 
     public enum PickupType {
         Lollipop = 0,
