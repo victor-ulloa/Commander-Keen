@@ -74,7 +74,7 @@ public class CanvasManager : MonoBehaviour {
             livesText.text = GameManager.instance.lives.ToString();
         }
         if (scoreText) {
-            //livesText.text = GameManager.instance.lives.ToString();
+            scoreText.text = GameManager.instance.score.ToString();
         }
     }
 

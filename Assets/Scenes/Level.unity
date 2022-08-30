@@ -325,7 +325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: 0.000014782}
+  m_AnchoredPosition: {x: 85, y: 0.000014782}
   m_SizeDelta: {x: 72.9067, y: 40.816}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &68221088
@@ -355,7 +355,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1448,14 +1448,16 @@ MonoBehaviour:
   settingsButton: {fileID: 0}
   quitButton: {fileID: 1846210645}
   backButton: {fileID: 0}
-  resumeGame: {fileID: 2043343037}
-  returnToMenu: {fileID: 1226560403}
+  resumeGameButton: {fileID: 2043343037}
+  returnToMenuButton: {fileID: 1226560403}
   mainMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   pauseMenu: {fileID: 911823501}
   volSlider: {fileID: 1797511043}
   muteToggle: {fileID: 58291876}
   volSliderText: {fileID: 148554181}
+  livesText: {fileID: 68221088}
+  scoreText: {fileID: 1652601722}
 --- !u!222 &836349312
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11270,7 +11272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 10
 --- !u!222 &1652601723
 CanvasRenderer:
   m_ObjectHideFlags: 0

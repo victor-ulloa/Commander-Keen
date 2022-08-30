@@ -21,39 +21,6 @@ public class PlayerController : MonoBehaviour {
     Coroutine jumpForceChange;
     Coroutine speedChange;
 
-    //const int MAX_LIVES = 5;
-
-    //private int _lives = 3;
-
-    //public int lives {
-    //    get { return _lives; }
-    //    set {
-
-    //        // if (_lives > value)
-    //        // lost a live - respawn?
-
-    //        // if (_lives <= 0)
-    //        // Game over
-
-    //        _lives = value;
-    //        if (_lives > MAX_LIVES) {
-    //            _lives = MAX_LIVES;
-    //        }
-
-    //        Debug.Log("Lives are set to:" + lives.ToString());
-    //    }
-    //}
-
-    private int _score = 0;
-    public int score {
-        get { return score; }
-        set {
-            _score = value;
-
-            Debug.Log("Your score is:" + score.ToString());
-        }
-    }
-
     // Start is called before the first frame update
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -67,6 +34,10 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Time.timeScale == 0) {
+            return;
+        }
+
         AnimatorClipInfo[] currentPlayingClip = animator.GetCurrentAnimatorClipInfo(0);
         float hInput = Input.GetAxisRaw("Horizontal");
 

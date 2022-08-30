@@ -45,6 +45,17 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    // SCORE
+
+    private int _score = 0;
+    public int score {
+        get { return _score; }
+        set {
+            _score = value;
+
+            Debug.Log("Your score is:" + score.ToString());
+        }
+    }
 
     // Start is called before the first frame update
     void Start() {
