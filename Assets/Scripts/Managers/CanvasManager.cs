@@ -40,6 +40,7 @@ public class CanvasManager : MonoBehaviour {
         }
         if (volSlider) {
             volSlider.onValueChanged.AddListener((value) => SliderValueChange(value));
+            volSliderText.text = volSlider.value.ToString();
         }
 
         if (resumeGame) {
