@@ -224,6 +224,7 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   facingRight: 1
   jumpSfx: {fileID: 8300000, guid: 260287117393bc5459dc4e0d1b55137f, type: 3}
+  deadSfx: {fileID: 8300000, guid: c4320103e48e30e478fa2abd32e0c32e, type: 3}
 --- !u!114 &3357835822767420701
 MonoBehaviour:
   m_ObjectHideFlags: 0

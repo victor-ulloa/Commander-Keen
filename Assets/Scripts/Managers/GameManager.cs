@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public Transform currentSpawnPoint;
     [HideInInspector] public Level currentLevel;
     [HideInInspector] public UnityEvent<int> OnLifeValueChaged;
+    [HideInInspector] public UnityEvent OnPlayerDeath;
     [HideInInspector] public UnityEvent<int> OnScoreValueChanged;
 
     // LIVES 
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour {
         set {
 
             if (_lives > value) {
+                OnPlayerDeath.Invoke();
                 Respawn();
             }
 

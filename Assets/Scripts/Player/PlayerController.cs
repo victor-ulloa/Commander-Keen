@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeReference] float groundCheckRadius = 0.02f;
     [SerializeReference] public bool facingRight = true;
 
-    public AudioClip jumpSfx;
+    [SerializeReference] AudioClip jumpSfx;
+    [SerializeReference] AudioClip deadSfx;
 
     Coroutine jumpForceChange;
     Coroutine speedChange;
@@ -33,6 +34,8 @@ public class PlayerController : MonoBehaviour {
         if (speed <= 0) { speed = 0.5f; }
         if (jumpForce <= 0) { jumpForce = 300; }
         if (groundCheckRadius <= 0) { groundCheckRadius = 0.02f; }
+
+        GameManager.instance.OnPlayerDeath.AddListener(() => onPlayerDeath());
 
     }
 
@@ -117,6 +120,10 @@ public class PlayerController : MonoBehaviour {
         yield return new WaitForSeconds(5.0f);
         speedChange = null;
         speed /= 2;
+    }
+
+    void onPlayerDeath() {
+        sfxManager.Play(deadSfx);
     }
 
 }

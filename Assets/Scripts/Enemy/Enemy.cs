@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Animator), typeof(AudioSourceManager)  )]
+[RequireComponent(typeof(SpriteRenderer), typeof(Animator), typeof(AudioSourceManager))]
 
 public class Enemy : MonoBehaviour {
 
@@ -31,10 +31,13 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    [SerializeReference] AudioClip deadSfx;
+
     public virtual void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sfxManager = GetComponent<AudioSourceManager>();
 
         if (maxHealth <= 0)
             maxHealth = 10;
@@ -51,6 +54,8 @@ public class Enemy : MonoBehaviour {
     }
 
     public virtual void DestroyMyself() {
+        Debug.Log("TEST");
+        sfxManager.Play(deadSfx);
         Destroy(gameObject);
     }
 
