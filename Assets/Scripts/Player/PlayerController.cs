@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rigidBody;
     Animator animator;
+    AudioSourceManager sfxManager;
 
     [SerializeReference] float speed = 0.5f;
     [SerializeReference] int jumpForce = 300;
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeReference] float groundCheckRadius = 0.02f;
     [SerializeReference] public bool facingRight = true;
 
+    public AudioClip jumpSfx;
+
     Coroutine jumpForceChange;
     Coroutine speedChange;
 
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        sfxManager = GetComponent<AudioSourceManager>();
 
         if (speed <= 0) { speed = 0.5f; }
         if (jumpForce <= 0) { jumpForce = 300; }
@@ -56,6 +60,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && isGrounded) {
             rigidBody.velocity = Vector2.zero;
             rigidBody.AddForce(Vector2.up * jumpForce);
+            sfxManager.Play(jumpSfx);
         }
 
         animator.SetFloat("moveValue", Mathf.Abs(hInput));

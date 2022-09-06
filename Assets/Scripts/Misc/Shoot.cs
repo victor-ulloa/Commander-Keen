@@ -8,14 +8,17 @@ public class Shoot : MonoBehaviour {
 
     PlayerController playerController;
     Enemy enemy;
+    AudioSourceManager sfxManager;
 
     [SerializeReference] float projectileSpeed;
     [SerializeReference] Transform spawnPoint;
     [SerializeReference] Projectile projectilePrefab;
-    // Start is called before the first frame update
+    [SerializeReference] AudioClip fireSfx;
+
     void Start() {
         playerController = GetComponent<PlayerController>();
         enemy = GetComponent<Enemy>();
+        sfxManager = GetComponent<AudioSourceManager>();
 
         if (projectileSpeed <= 0) {
             projectileSpeed = 7.0f;
@@ -32,6 +35,7 @@ public class Shoot : MonoBehaviour {
             currentProjectile.speed = playerController.facingRight ? projectileSpeed : -projectileSpeed;
         } else if (enemy != null) {
             currentProjectile.speed = enemy.facingRight ? projectileSpeed : -projectileSpeed;
-        }    
+        }
+        sfxManager.Play(fireSfx);
     }
 }

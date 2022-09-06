@@ -20,12 +20,16 @@ public class PickUp : MonoBehaviour {
     }
 
     [SerializeReference] PickupType pickupType;
+    [SerializeReference] AudioClip PickUpSound;
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D collision) {
 
-        PlayerController currentPlayer = other.gameObject.GetComponent<PlayerController>();
+        PlayerController currentPlayer = collision.gameObject.GetComponent<PlayerController>();
 
-        if (other.tag == "Player") {
+        if (collision.tag == "Player") {
+
+            AudioSourceManager sfxManager = collision.gameObject.GetComponent<AudioSourceManager>();
+
             switch (pickupType) {
                 case PickupType.Lollipop:
                     currentPlayer.StartJumpforceChange();
@@ -69,6 +73,7 @@ public class PickUp : MonoBehaviour {
                     break;
             }
 
+            sfxManager.Play(PickUpSound);   
             Destroy(gameObject);
         }
     }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer), typeof(Animator), typeof(AudioSourceManager)  )]
 
 public class Enemy : MonoBehaviour {
+
     protected Rigidbody2D rigidBody;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
+    protected AudioSourceManager sfxManager;
 
     [SerializeReference] public bool facingRight = true;
 

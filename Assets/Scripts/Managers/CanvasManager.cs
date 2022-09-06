@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour {
+
+    public AudioMixer audioMixer;
+
     [Header("Button")]
     [SerializeField] Button startButton;
     [SerializeField] Button settingsButton;
@@ -56,7 +60,7 @@ public class CanvasManager : MonoBehaviour {
         // Sliders
 
         if (volSlider) {
-            volSlider.onValueChanged.AddListener((value) => SliderValueChange(value));
+            volSlider.onValueChanged.AddListener((value) => SfxSliderValueChange(value));
             volSlider.value = AudioListener.volume * 100;
             volSliderText.text = volSlider.value.ToString();
         }
@@ -117,11 +121,18 @@ public class CanvasManager : MonoBehaviour {
     }
 
 
-    void SliderValueChange(float value) {
+    void MusicSliderValueChange(float value) {
         if (volSliderText) {
             volSliderText.text = value.ToString();
+            audioMixer.SetFloat("MusicVol", value - 80);
         }
-        AudioListener.volume = value / 100;
+    }
+
+    void SfxSliderValueChange(float value) {
+        if (volSliderText) {
+            volSliderText.text = value.ToString();
+            audioMixer.SetFloat("SFXVol", value - 80);
+        }
     }
 
     void ResumeGame() {
