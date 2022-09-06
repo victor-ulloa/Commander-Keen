@@ -1919,11 +1919,11 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   pauseMenu: {fileID: 911823501}
-  generalSoundSlider: {fileID: 1748999709}
+  masterSoundSlider: {fileID: 1748999709}
   musicSlider: {fileID: 1613653131}
   sfxSlider: {fileID: 1797511043}
   muteToggle: {fileID: 58291876}
-  generalSoundSliderText: {fileID: 1866177710}
+  masterSoundSliderText: {fileID: 1866177710}
   musicSliderText: {fileID: 673541502}
   sfxSliderText: {fileID: 148554181}
   scoreText: {fileID: 1652601722}
