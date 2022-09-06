@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour {
 
     public virtual void DestroyMyself() {
         Debug.Log("TEST");
-        sfxManager.Play(deadSfx);
+        GameManager.instance.playerInstance.sfxManager.Play(deadSfx);
         Destroy(gameObject);
     }
 

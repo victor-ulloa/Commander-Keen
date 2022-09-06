@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rigidBody;
     Animator animator;
-    AudioSourceManager sfxManager;
+    [HideInInspector] public AudioSourceManager sfxManager;
 
     [SerializeReference] float speed = 0.5f;
     [SerializeReference] int jumpForce = 300;
