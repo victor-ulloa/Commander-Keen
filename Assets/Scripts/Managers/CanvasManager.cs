@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,10 +31,11 @@ public class CanvasManager : MonoBehaviour {
 
     [Header("Text")]
     [SerializeField] Text volSliderText;
-    [SerializeField] Text livesText;
     [SerializeField] Text scoreText;
 
-    // Start is called before the first frame update
+
+    [SerializeField] Image[] heartArray;
+
     void Start() {
 
         // Buttons
@@ -74,8 +76,7 @@ public class CanvasManager : MonoBehaviour {
 
         // Texts
 
-        if (livesText) {
-            livesText.text = GameManager.instance.lives.ToString();
+        if (heartArray.Length > 0) {
             GameManager.instance.OnLifeValueChaged.AddListener((value) => UpdateLives(value));
         }
         if (scoreText) {
@@ -148,7 +149,13 @@ public class CanvasManager : MonoBehaviour {
     }
 
     void UpdateLives(int value) {
-        livesText.text = value.ToString();
+        for (int i = 0; i < heartArray.Length; i++) {
+            if (i < value) {
+                heartArray[i].enabled = true;
+            } else {
+                heartArray[i].enabled = false;
+            }
+        }
     }
 
     void UpdateScore(int value) {
