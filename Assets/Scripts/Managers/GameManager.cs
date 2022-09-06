@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public PlayerController playerInstance; 
     [HideInInspector] public Transform currentSpawnPoint;
     [HideInInspector] public Level currentLevel;
-
+    [HideInInspector] public UnityEvent<int> OnLifeValueChaged;
+    [HideInInspector] public UnityEvent<int> OnScoreValueChanged;
 
     // LIVES 
 
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour {
             if (_lives > maxLives) {
                 _lives = maxLives;
             }
-
+            OnLifeValueChaged.Invoke(_lives);
             Debug.Log("Lives are set to:" + lives.ToString());
         }
     }
@@ -52,13 +54,13 @@ public class GameManager : MonoBehaviour {
         get { return _score; }
         set {
             _score = value;
-
+            OnScoreValueChanged.Invoke(_score);
             Debug.Log("Your score is:" + score.ToString());
         }
     }
 
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         if (instance) {
             Destroy(gameObject);
         } else {

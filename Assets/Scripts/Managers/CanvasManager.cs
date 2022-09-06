@@ -72,9 +72,11 @@ public class CanvasManager : MonoBehaviour {
 
         if (livesText) {
             livesText.text = GameManager.instance.lives.ToString();
+            GameManager.instance.OnLifeValueChaged.AddListener((value) => UpdateLives(value));
         }
         if (scoreText) {
             scoreText.text = GameManager.instance.score.ToString();
+            GameManager.instance.OnScoreValueChanged.AddListener((value) => UpdateScore(value));
         }
     }
 
@@ -132,5 +134,13 @@ public class CanvasManager : MonoBehaviour {
 
     void MuteStatusChange(bool muted) {
         AudioListener.pause = muted;
+    }
+
+    void UpdateLives(int value) {
+        livesText.text = value.ToString();
+    }
+
+    void UpdateScore(int value) {
+        scoreText.text = value.ToString();
     }
 }
