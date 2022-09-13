@@ -12,7 +12,9 @@ public class Shoot : MonoBehaviour {
 
     [SerializeReference] float projectileSpeed;
     [SerializeReference] Transform spawnPoint;
+    [SerializeReference] Transform spawnPointBottom;
     [SerializeReference] Projectile projectilePrefab;
+    [SerializeReference] Projectile knifePrefab;
     [SerializeReference] AudioClip fireSfx;
 
     void Start() {
@@ -36,6 +38,14 @@ public class Shoot : MonoBehaviour {
         } else if (enemy != null) {
             currentProjectile.speed = enemy.facingRight ? projectileSpeed : -projectileSpeed;
         }
+        sfxManager.Play(fireSfx);
+    }
+
+    public void DropKnife() {
+        Projectile currentProjectile = Instantiate(knifePrefab, spawnPointBottom.position, spawnPointBottom.rotation);
+        if (playerController != null) {
+            currentProjectile.speed = projectileSpeed;
+        } 
         sfxManager.Play(fireSfx);
     }
 }

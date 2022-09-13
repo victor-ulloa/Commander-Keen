@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1853305153646963667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2895876198013083815}
+  m_Layer: 0
+  m_Name: spawnPointBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2895876198013083815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853305153646963667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.009, y: -0.106, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3357835822767420672}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3357835821227376258
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +131,7 @@ Transform:
   m_Children:
   - {fileID: 3357835821227376259}
   - {fileID: 3357835822616138309}
+  - {fileID: 2895876198013083815}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -214,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7af23befbf5f0c45b963ce418ecc772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxManager: {fileID: 0}
   speed: 3
   jumpForce: 350
   isGrounded: 0
@@ -239,7 +272,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 0
   spawnPoint: {fileID: 3357835822616138309}
+  spawnPointBottom: {fileID: 2895876198013083815}
   projectilePrefab: {fileID: 7688162653810083792, guid: 89d616ccf10d8ac4db912734c0321539, type: 3}
+  knifePrefab: {fileID: 6161498996247444094, guid: 5cec12426f3c3394d9318c94c6b4faa9, type: 3}
   fireSfx: {fileID: 8300000, guid: 8cd7883c1cad22543ba315ccf2510cec, type: 3}
 --- !u!95 &3357835822767420700
 Animator:

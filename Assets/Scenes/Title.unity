@@ -688,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 0}
   startButton: {fileID: 982887261}
-  creditsButton: {fileID: 0}
+  creditsButton: {fileID: 634892994}
   settingsButton: {fileID: 1510638001}
   quitButton: {fileID: 1958836446}
   backButton: {fileID: 1925828279}
