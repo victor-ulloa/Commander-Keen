@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   maxHealth: 1
-  deadSfx: {fileID: 8300000, guid: c4320103e48e30e478fa2abd32e0c32e, type: 3}
+  deadSfx: {fileID: 8300000, guid: 1f80bf3ccb2cd364189a64c60d8ba0ee, type: 3}
   speed: 2
 --- !u!82 &18859826181347722
 AudioSource:

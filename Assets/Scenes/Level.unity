@@ -949,7 +949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.26, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -968,8 +968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384c626d171d826419902aecea00344d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minXClamp: 6.26
-  maxXClamp: 92
+  minXClamp: 0
+  maxXClamp: 98
   minYClamp: 0
   maxYClamp: 8
 --- !u!1001 &571127992
@@ -1911,6 +1911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 05ce7f97e83ff444a8f168c76a5b258e, type: 2}
   startButton: {fileID: 0}
+  creditsButton: {fileID: 0}
   settingsButton: {fileID: 0}
   quitButton: {fileID: 1846210645}
   backButton: {fileID: 0}
@@ -1919,6 +1920,7 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   pauseMenu: {fileID: 911823501}
+  creditsMenu: {fileID: 0}
   masterSoundSlider: {fileID: 1748999709}
   musicSlider: {fileID: 1613653131}
   sfxSlider: {fileID: 1797511043}
@@ -12199,10 +12201,10 @@ RectTransform:
   m_Father: {fileID: 2073162018}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 707.30817, y: 230.00002}
-  m_SizeDelta: {x: 143.0417, y: 40.816}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -41}
+  m_SizeDelta: {x: 143.04169, y: 40.81601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652601722
 MonoBehaviour:
@@ -12217,7 +12219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.46893442, b: 0, a: 1}
+  m_Color: {r: 0.29803923, g: 0.17254902, b: 0.4117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

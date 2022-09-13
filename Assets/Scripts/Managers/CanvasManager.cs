@@ -14,6 +14,7 @@ public class CanvasManager : MonoBehaviour {
 
     [Header("Button")]
     [SerializeField] Button startButton;
+    [SerializeField] Button creditsButton;
     [SerializeField] Button settingsButton;
     [SerializeField] Button quitButton;
     [SerializeField] Button backButton;
@@ -24,6 +25,7 @@ public class CanvasManager : MonoBehaviour {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject creditsMenu;
 
     [Header("Slider")]
     [SerializeField] Slider masterSoundSlider;
@@ -48,6 +50,9 @@ public class CanvasManager : MonoBehaviour {
 
         if (startButton) {
             startButton.onClick.AddListener(() => StartGame());
+        }
+        if (creditsButton) {
+            creditsButton.onClick.AddListener(() => ShowCreditsMenu());
         }
         if (settingsButton) {
             settingsButton.onClick.AddListener(() => ShowSettingsMenu());
@@ -125,6 +130,10 @@ public class CanvasManager : MonoBehaviour {
 
     void StartGame() {
         SceneManager.LoadScene("Level");
+    }
+
+    void ShowCreditsMenu() {
+        SceneManager.LoadScene("Credits");
     }
 
     void ShowSettingsMenu() {

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   maxHealth: 0
-  deadSfx: {fileID: 8300000, guid: c4320103e48e30e478fa2abd32e0c32e, type: 3}
+  deadSfx: {fileID: 8300000, guid: 1f80bf3ccb2cd364189a64c60d8ba0ee, type: 3}
   turretRange: 10
   projectileFireRate: 0
 --- !u!114 &2998572057182965769
