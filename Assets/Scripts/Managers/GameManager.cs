@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (SceneManager.GetActiveScene().name == "Level" || SceneManager.GetActiveScene().name == "GameOver") {
+            if (SceneManager.GetActiveScene().name == "Level" || SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "Win") {
                 SceneManager.LoadScene("Title");
             } else {
                 SceneManager.LoadScene("Level");
