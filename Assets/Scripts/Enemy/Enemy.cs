@@ -54,7 +54,6 @@ public class Enemy : MonoBehaviour {
     }
 
     public virtual void DestroyMyself() {
-        Debug.Log("TEST");
         GameManager.instance.playerInstance.sfxManager.Play(deadSfx);
         Destroy(gameObject);
     }
@@ -64,5 +63,11 @@ public class Enemy : MonoBehaviour {
         currentScale.x *= -1;
         transform.localScale = currentScale;
         facingRight = !facingRight;
+    }
+
+    public virtual void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Player")) {
+            GameManager.instance.lives--;
+        }
     }
 }
