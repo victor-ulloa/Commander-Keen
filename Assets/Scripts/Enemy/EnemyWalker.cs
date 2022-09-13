@@ -32,7 +32,7 @@ public class EnemyWalker : Enemy {
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    public override void OnCollisionEnter2D(Collision2D collision) {
         base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("Bullet")) {
             DestroyMyself();
